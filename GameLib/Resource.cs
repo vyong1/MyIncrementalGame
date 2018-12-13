@@ -24,7 +24,7 @@ namespace GameLib
 
         public override string ToString()
         {
-            return string.Format("{0} -> Value = {1}, Delta = {2}", Name, Value, Delta);
+            return string.Format("{0} (+{1}/tick) -> Value = {2}", Name, Delta, Value);
         }
     }
 }

@@ -45,6 +45,7 @@ namespace GameLib
 
         public void PrintResources()
         {
+            Console.SetCursorPosition(0, 0);
             Console.WriteLine("============");
             Resources.ForEach(r => Console.WriteLine(r.ToString()));
             Console.WriteLine("====\n");
