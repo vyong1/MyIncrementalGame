@@ -47,7 +47,7 @@ namespace GameLib
         {
             Console.WriteLine("============");
             Resources.ForEach(r => Console.WriteLine(r.ToString()));
-            Console.WriteLine("====");
+            Console.WriteLine("====\n");
         }
 
         private void Tick()
