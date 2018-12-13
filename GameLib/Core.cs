@@ -7,24 +7,21 @@ namespace MyIncrementalGame
 {
     public class Core
     {
-        List<Resource> Resources { get; } = new List<Resource>();
+        public List<Resource> Resources { get; } = new List<Resource>();
+        private bool started = false;
         private volatile bool running = true;
         private const int TickMS = 500;
         private Thread GameThread;
-        
-
-        public void AddResource(Resource resource)
-        {
-            this.Resources.Add(resource);
-        }
-
-        public void AddResources(List<Resource> resources)
-        {
-            this.Resources.AddRange(resources);
-        }
 
         public void Start()
         {
+            // Only allow for 1 start
+            if(started == true)
+            {
+                return;
+            }
+
+            started = true;
             GameThread = new Thread(new ThreadStart(GameLoop));
             GameThread.Start();
         }
@@ -53,7 +50,7 @@ namespace MyIncrementalGame
             Console.WriteLine("====");
         }
 
-        public void Tick()
+        private void Tick()
         {
             foreach (Resource resource in Resources)
             {
