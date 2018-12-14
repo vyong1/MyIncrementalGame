@@ -62,8 +62,8 @@ namespace GameLib
             foreach (Resource r in toUpgrade)
             {
                 double old = r.Delta;
-                r.Delta = Math.Round(r.Delta + r.Value * 0.01, 2);
-                r.Value = 0;
+                Upgrade resetUpgrade = UpgradeFactory.CreateResetUpgrade(0.01);
+                r.ApplyUpgrade(resetUpgrade);
                 Console.WriteLine(string.Format("Resource \"{0}\" delta upgraded from {1} to {2}", r.Name, old, r.Delta));
             }
 

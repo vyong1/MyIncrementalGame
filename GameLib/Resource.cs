@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GameLib
 {
-    public abstract class Resource
+    public abstract class Resource : Upgradable
     {
         public double Delta { get; set; }
         public double Value { get; set; }
@@ -25,6 +25,11 @@ namespace GameLib
         public override string ToString()
         {
             return string.Format("{0} (+{1}/tick) -> Value = {2}", Name, Delta, Value);
+        }
+
+        public void ApplyUpgrade(Upgrade upgrade)
+        {
+            upgrade.ApplyTo(this);
         }
     }
 }
