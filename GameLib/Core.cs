@@ -1,62 +1,43 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 
 namespace GameLib
 {
+    /// <summary>
+    /// Coordinates a HeartBeat to tick Resources and a UI
+    /// </summary>
     public class Core
     {
-        public List<Resource> Resources { get; } = new List<Resource>();
-        private bool started = false;
-        private volatile bool running = true;
-        private const int TickMS = 500;
-        private Thread GameThread;
+        private HeartBeat HeartBeat { get; set; }
+
+        public ResourceData Resources { get; }
+
+        private ConsoleUI UI { get; set; }
+        
+        public Core(int tickMS = 500)
+        {
+            HeartBeat = new HeartBeat(tickMS, Tick);
+            Resources = new ResourceData();
+            UI = new ConsoleUI(Resources);
+        }
 
         public void Start()
         {
-            // Only allow for 1 start
-            if(started == true)
-            {
-                return;
-            }
-
-            started = true;
-            GameThread = new Thread(new ThreadStart(GameLoop));
-            GameThread.Start();
+            HeartBeat.Start();
         }
 
         public void Stop()
         {
-            this.running = false;
-
-            GameThread.Join();
+            HeartBeat.Stop();
         }
 
-        private void GameLoop()
+        public void Tick()
         {
-            while(running == true)
-            {
-                Tick();
-                PrintResources();
-                Thread.Sleep(TickMS);
-            }
-        }
-
-        public void PrintResources()
-        {
-            Console.SetCursorPosition(0, 0);
-            Console.WriteLine("============");
-            Resources.ForEach(r => Console.WriteLine(r.ToString()));
-            Console.WriteLine("====\n");
-        }
-
-        private void Tick()
-        {
-            foreach (Resource resource in Resources)
-            {
-                resource.Tick();
-            }
+            Resources.Tick();
+            UI.Tick();
         }
     }
 }
