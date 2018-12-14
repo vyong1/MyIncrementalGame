@@ -21,8 +21,12 @@ namespace GameLib
             Func = func;
             
             Timer = new Timer(DelayMS);
+            Timer.Enabled = true;
             Timer.Elapsed += OnElapsed;
             Timer.AutoReset = true;
+
+            // Require that the heartbeat be manually started
+            Timer.Stop();
         }
 
         public void Start()

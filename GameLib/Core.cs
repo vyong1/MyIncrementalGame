@@ -17,21 +17,27 @@ namespace GameLib
 
         private ConsoleUI UI { get; set; }
 
+        private Thread UIThread { get; set; }
+
         public Core(int tickMS = 500)
         {
             HeartBeat = new HeartBeat(tickMS, Tick);
             Resources = new ResourceData();
             UI = new ConsoleUI(Resources);
+
+            UIThread = new Thread(UI.InterpretInput);
         }
 
         public void Start()
         {
             HeartBeat.Start();
+            UIThread.Start();
         }
 
         public void Stop()
         {
             HeartBeat.Stop();
+            UIThread.Join();
         }
 
         private void Tick()

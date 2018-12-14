@@ -23,11 +23,6 @@ namespace GameLib
             core.Resources.Add(new WheatResource());
             
             core.Start();
-
-            // Indefinite wait
-            Console.Read();
-
-            core.Stop();
         }
     }
 }
