@@ -6,9 +6,9 @@ namespace GameLib
 {
     public abstract class Resource
     {
-        protected double Delta { get; set; }
-        protected double Value { get; set; }
-        protected string Name { get; set; }
+        public double Delta { get; set; }
+        public double Value { get; set; }
+        public string Name { get; set; }
 
         public Resource(double delta, double value, string name)
         {
@@ -19,7 +19,7 @@ namespace GameLib
 
         public void Tick()
         {
-            Value = Value + Delta;
+            Value = Math.Round(Value + Delta, 2);
         }
 
         public override string ToString()
