@@ -18,16 +18,16 @@ namespace GameLib
     {
         static void Main(string[] args)
         {
-            Core c = new Core();
-            c.Resources.Add(new CornResource());
-            c.Resources.Add(new WheatResource());
-
-            c.Start();
+            Core core = new Core();
+            core.Resources.Add(new CornResource());
+            core.Resources.Add(new WheatResource());
+            
+            core.Start();
 
             // Indefinite wait
             Console.Read();
 
-            c.Stop();
+            core.Stop();
         }
     }
 }

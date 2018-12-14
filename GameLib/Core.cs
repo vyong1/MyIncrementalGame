@@ -16,7 +16,7 @@ namespace GameLib
         public ResourceData Resources { get; }
 
         private ConsoleUI UI { get; set; }
-        
+
         public Core(int tickMS = 500)
         {
             HeartBeat = new HeartBeat(tickMS, Tick);
@@ -34,7 +34,7 @@ namespace GameLib
             HeartBeat.Stop();
         }
 
-        public void Tick()
+        private void Tick()
         {
             Resources.Tick();
             UI.Tick();
