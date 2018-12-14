@@ -1,4 +1,7 @@
-﻿using System;
+﻿using GameLib.CoreLib;
+using GameLib.IncrementingResources;
+using GameLib.Upgrades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +11,11 @@ namespace GameLib
 {
     public class ConsoleUI : Tickable
     {
-        private IEnumerable<Resource> Resources { get; set; }
+        private IEnumerable<IncrementingResource> Resources { get; set; }
 
         private bool CurrentlyPrintingResources { get; set; } = false;
 
-        public ConsoleUI(IEnumerable<Resource> resources)
+        public ConsoleUI(IEnumerable<IncrementingResource> resources)
         {
             Resources = resources;
         }
@@ -59,7 +62,7 @@ namespace GameLib
                 return;
             }
 
-            foreach (Resource r in toUpgrade)
+            foreach (IncrementingResource r in toUpgrade)
             {
                 double old = r.Delta;
                 Upgrade resetUpgrade = UpgradeFactory.CreateResetUpgrade(0.01);
@@ -90,7 +93,7 @@ namespace GameLib
         {
             Clear();
             Console.WriteLine("Resources:");
-            foreach (Resource r in Resources)
+            foreach (IncrementingResource r in Resources)
             {
                 Console.WriteLine("  " + r.ToString());
             }

@@ -1,4 +1,6 @@
 ﻿using GameLib;
+using GameLib.CoreLib;
+using GameLib.IncrementingResources;
 using System;
 using System.Threading;
 

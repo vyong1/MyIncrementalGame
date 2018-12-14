@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLib
+namespace GameLib.IncrementingResources
 {
-    public class CornResource : Resource
+    public class CornResource : IncrementingResource
     {
         public CornResource() : 
             base(

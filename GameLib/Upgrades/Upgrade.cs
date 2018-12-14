@@ -1,16 +1,17 @@
-﻿using System;
+﻿using GameLib.IncrementingResources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLib
+namespace GameLib.Upgrades
 {
     public class Upgrade
     {
         private IEnumerable<UpgradeClause> Clauses { get; set; }
 
-        public Upgrade(Action<Resource> func)
+        public Upgrade(Action<IncrementingResource> func)
         {
             Clauses = new List<UpgradeClause>() { new UpgradeClause(func) };
         }
@@ -20,7 +21,7 @@ namespace GameLib
             Clauses = clauses;
         }
 
-        public void ApplyTo(Resource resource)
+        public void ApplyTo(IncrementingResource resource)
         {
             foreach (UpgradeClause clause in Clauses)
             {

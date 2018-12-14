@@ -1,16 +1,17 @@
-﻿using System;
+﻿using GameLib.Upgrades;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace GameLib
+namespace GameLib.IncrementingResources
 {
-    public abstract class Resource : Upgradable
+    public abstract class IncrementingResource : Upgradable
     {
         public double Delta { get; set; }
         public double Value { get; set; }
         public string Name { get; set; }
 
-        public Resource(double delta, double value, string name)
+        public IncrementingResource(double delta, double value, string name)
         {
             Delta = delta;
             Value = value;

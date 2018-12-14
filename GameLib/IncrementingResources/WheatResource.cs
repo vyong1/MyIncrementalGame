@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLib
+namespace GameLib.IncrementingResources
 {
-    public class WheatResource : Resource
+    public class WheatResource : IncrementingResource
     {
         public WheatResource() :
             base(

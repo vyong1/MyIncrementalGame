@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace GameLib
+namespace GameLib.CoreLib
 {
     public class HeartBeat
     {

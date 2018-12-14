@@ -1,10 +1,11 @@
-﻿using System;
+﻿using GameLib.IncrementingResources;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace GameLib
+namespace GameLib.CoreLib
 {
     /// <summary>
     /// Coordinates a HeartBeat to tick Resources and a UI

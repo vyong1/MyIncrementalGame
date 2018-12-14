@@ -1,16 +1,17 @@
-﻿using System;
+﻿using GameLib.CoreLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLib
+namespace GameLib.IncrementingResources
 {
-    public class ResourceData : List<Resource>, Tickable
+    public class ResourceData : List<IncrementingResource>, Tickable
     {
         public void Tick()
         {
-            foreach (Resource r in this)
+            foreach (IncrementingResource r in this)
             {
                 r.Tick();
             }
