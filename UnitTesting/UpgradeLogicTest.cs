@@ -27,6 +27,7 @@ namespace UnitTesting
             UpgradeLogic = new DeltaMultUpgradeLogic(Corn, 10);
             UpgradeLogic.ApplyLogic();
             Assert.AreEqual(Corn.Delta, 20 * 10);
+            Assert.AreEqual(UpgradeLogic.ToString(), "Gain x10 to Corn growth");
         }
 
         [TestMethod]
@@ -35,6 +36,7 @@ namespace UnitTesting
             UpgradeLogic = new ValueAddUpgradeLogic(Corn, 10);
             UpgradeLogic.ApplyLogic();
             Assert.AreEqual(Corn.Value, 110);
+            Assert.AreEqual(UpgradeLogic.ToString(), "Gain 10 Corn");
         }
 
         [TestMethod]
@@ -43,6 +45,7 @@ namespace UnitTesting
             UpgradeLogic = new ValueSubUpgradeLogic(Corn, 10);
             UpgradeLogic.ApplyLogic();
             Assert.AreEqual(Corn.Value, 90);
+            Assert.AreEqual(UpgradeLogic.ToString(), "Lose 10 Corn");
         }
 
     }

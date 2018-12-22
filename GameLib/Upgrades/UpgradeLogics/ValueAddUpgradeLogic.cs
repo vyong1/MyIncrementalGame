@@ -15,7 +15,7 @@ namespace GameLib.Upgrades.UpgradeLogics
 
         }
 
-        public string ToString()
+        public override string ToString()
         {
             return string.Format("Gain {0} {1}", UpgradeFactor, Resource.Name);
         }

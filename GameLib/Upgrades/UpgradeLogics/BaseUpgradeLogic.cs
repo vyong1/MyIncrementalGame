@@ -27,5 +27,7 @@ namespace GameLib.Upgrades
         {
             Logic.Invoke(Resource);
         }
+
+        public abstract override string ToString();
     }
 }
