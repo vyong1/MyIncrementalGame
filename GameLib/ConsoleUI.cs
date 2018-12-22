@@ -12,8 +12,13 @@ namespace GameLib
     /// <summary>
     /// This is just a temporary console UI to test out code
     /// </summary>
+    [Obsolete]
     public class ConsoleUI : Tickable
     {
+        /*
+           DEPRECATED 
+        */
+
         private IEnumerable<IncrementingResource> Resources { get; set; }
 
         private bool CurrentlyPrintingResources { get; set; } = false;

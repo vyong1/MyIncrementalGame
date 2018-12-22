@@ -1,4 +1,5 @@
 ﻿using GameLib.IncrementingResources;
+using GameLib.PlayerLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace GameLib.CoreLib
     {
         private HeartBeat HeartBeat { get; set; }
 
-        public ResourceData Resources { get; }
+        public Player Player { get; }
 
         private ConsoleUI UI { get; set; }
 
@@ -23,8 +24,8 @@ namespace GameLib.CoreLib
         public Core(int tickMS = 500)
         {
             HeartBeat = new HeartBeat(tickMS, Tick);
-            Resources = new ResourceData();
-            UI = new ConsoleUI(Resources);
+            Player = new Player();
+            // UI = new ConsoleUI(Player.Resources);
 
             UIThread = new Thread(UI.InterpretInput);
         }
@@ -43,7 +44,7 @@ namespace GameLib.CoreLib
 
         private void Tick()
         {
-            Resources.Tick();
+            Player.Resources.Tick();
             UI.Tick();
         }
     }

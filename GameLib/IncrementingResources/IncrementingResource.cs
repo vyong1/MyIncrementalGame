@@ -1,11 +1,12 @@
-﻿using GameLib.Upgrades;
+﻿using GameLib.CoreLib;
+using GameLib.Upgrades;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace GameLib.IncrementingResources
 {
-    public abstract class IncrementingResource
+    public abstract class IncrementingResource : Tickable
     {
         public double Delta { get; set; }
         public double Value { get; set; }
