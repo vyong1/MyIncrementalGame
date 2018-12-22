@@ -25,10 +25,6 @@ namespace UnitTesting
             u.Apply();
             Assert.AreEqual(corn.Value, 0);
             Assert.AreEqual(corn.Delta, 200);
-
-            corn.Tick();
-            Assert.AreEqual(corn.Value, 200);
-            Assert.AreEqual(corn.Delta, 200);
         }
 
         [TestMethod]

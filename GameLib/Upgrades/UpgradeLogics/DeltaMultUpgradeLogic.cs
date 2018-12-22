@@ -10,9 +10,14 @@ namespace GameLib.Upgrades.UpgradeLogics
     public class DeltaMultUpgradeLogic : BaseUpgradeLogic
     {
         public DeltaMultUpgradeLogic(IncrementingResource resource, int factor)
-            : base(resource, r => r.Delta = r.Delta * factor)
+            : base(resource, factor, r => r.Delta = r.Delta * factor)
         {
 
+        }
+
+        public string ToString()
+        {
+            return string.Format("Gain x{0} to {1}", UpgradeFactor, Resource.Name);
         }
     }
 }

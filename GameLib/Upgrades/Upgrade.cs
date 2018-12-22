@@ -24,5 +24,10 @@ namespace GameLib.Upgrades.UpgradeLogics
             Cost.ApplyLogic();
             Benefit.ApplyLogic();
         }
+
+        public string ToString()
+        {
+            return string.Format("{0}\n{1}", Cost.ToString(), Benefit.ToString());
+        }
     }
 }

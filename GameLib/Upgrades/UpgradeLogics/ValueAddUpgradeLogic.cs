@@ -10,9 +10,14 @@ namespace GameLib.Upgrades.UpgradeLogics
     public class ValueAddUpgradeLogic : BaseUpgradeLogic
     {
         public ValueAddUpgradeLogic(IncrementingResource resource, int add)
-            : base(resource, r => r.Value = r.Value + add)
+            : base(resource, add, r => r.Value = r.Value + add)
         {
 
+        }
+
+        public string ToString()
+        {
+            return string.Format("Gain {0} {1}", UpgradeFactor, Resource.Name);
         }
     }
 }

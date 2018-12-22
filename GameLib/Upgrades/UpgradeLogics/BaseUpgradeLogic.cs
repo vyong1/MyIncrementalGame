@@ -10,14 +10,17 @@ namespace GameLib.Upgrades
 {
     public abstract class BaseUpgradeLogic
     {
-        private Action<IncrementingResource> Logic { get; set; }
+        protected Action<IncrementingResource> Logic { get; set; }
 
-        private IncrementingResource Resource { get; set; }
+        protected IncrementingResource Resource { get; set; }
 
-        public BaseUpgradeLogic(IncrementingResource resource, Action<IncrementingResource> logic)
+        protected int UpgradeFactor { get; set; }
+
+        public BaseUpgradeLogic(IncrementingResource resource, int upgradeFactor, Action<IncrementingResource> logic)
         {
             Logic = logic;
             Resource = resource;
+            UpgradeFactor = upgradeFactor;
         }
 
         public void ApplyLogic()
