@@ -25,7 +25,10 @@ namespace GameLib.Upgrades
 
         public void ApplyLogic()
         {
-            Logic.Invoke(Resource);
+            if (Logic != null)
+            {
+                Logic.Invoke(Resource);
+            }
         }
 
         public abstract override string ToString();

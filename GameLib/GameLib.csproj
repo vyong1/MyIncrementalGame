@@ -55,6 +55,7 @@
     <Compile Include="IncrementingResources\Wheat.cs" />
     <Compile Include="Upgrades\UpgradeLogics\BaseUpgradeLogic.cs" />
     <Compile Include="Upgrades\UpgradeLogics\DeltaMultUpgradeLogic.cs" />
+    <Compile Include="Upgrades\UpgradeLogics\NullUpgradeLogic.cs" />
     <Compile Include="Upgrades\UpgradeLogics\ValueSubUpgradeLogic.cs" />
     <Compile Include="Upgrades\UpgradesList.cs" />
     <Compile Include="Upgrades\UpgradeLogics\ValueAddUpgradeLogic.cs" />

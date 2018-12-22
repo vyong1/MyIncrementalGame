@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLib.Upgrades.UpgradeLogics
+namespace GameLib.Upgrades
 {
     public class Upgrade
     {
