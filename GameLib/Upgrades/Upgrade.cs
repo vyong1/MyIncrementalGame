@@ -1,32 +1,28 @@
 ﻿using GameLib.IncrementingResources;
+using GameLib.PlayerLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLib.Upgrades
+namespace GameLib.Upgrades.UpgradeLogics
 {
     public class Upgrade
     {
-        private IEnumerable<UpgradeClause> Clauses { get; set; }
+        private BaseUpgradeLogic Cost { get; set; }
+        private BaseUpgradeLogic Benefit { get; set; }
 
-        public Upgrade(Action<IncrementingResource> func)
+        public Upgrade(BaseUpgradeLogic cost, BaseUpgradeLogic benefit)
         {
-            Clauses = new List<UpgradeClause>() { new UpgradeClause(func) };
+            Cost = cost;
+            Benefit = benefit;
         }
 
-        public Upgrade(IEnumerable<UpgradeClause> clauses)
+        public void Apply()
         {
-            Clauses = clauses;
-        }
-
-        public void ApplyTo(IncrementingResource resource)
-        {
-            foreach (UpgradeClause clause in Clauses)
-            {
-                clause.ExecuteOn(resource);
-            }
+            Cost.ApplyLogic();
+            Benefit.ApplyLogic();
         }
     }
 }

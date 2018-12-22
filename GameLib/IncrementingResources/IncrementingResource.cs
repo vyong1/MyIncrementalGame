@@ -5,7 +5,7 @@ using System.Text;
 
 namespace GameLib.IncrementingResources
 {
-    public abstract class IncrementingResource : Upgradable
+    public abstract class IncrementingResource
     {
         public double Delta { get; set; }
         public double Value { get; set; }
@@ -26,11 +26,6 @@ namespace GameLib.IncrementingResources
         public override string ToString()
         {
             return string.Format("{0} (+{1}/tick) -> Value = {2}", Name, Delta, Value);
-        }
-
-        public void ApplyUpgrade(Upgrade upgrade)
-        {
-            upgrade.ApplyTo(this);
         }
     }
 }

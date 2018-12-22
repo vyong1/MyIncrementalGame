@@ -43,18 +43,22 @@
   <ItemGroup>
     <Compile Include="ConsoleUI.cs" />
     <Compile Include="CoreLib\Core.cs" />
-    <Compile Include="IncrementingResources\CornResource.cs" />
+    <Compile Include="PlayerLib\Player.cs" />
+    <Compile Include="PlayerLib\PlayerResources.cs" />
+    <Compile Include="IncrementingResources\Corn.cs" />
     <Compile Include="CoreLib\HeartBeat.cs" />
     <Compile Include="IncrementingResources\IncrementingResource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IncrementingResources\ResourceData.cs" />
     <Compile Include="CoreLib\Tickable.cs" />
-    <Compile Include="Upgrades\Upgradable.cs" />
     <Compile Include="Upgrades\Upgrade.cs" />
-    <Compile Include="Upgrades\UpgradeClause.cs" />
-    <Compile Include="Upgrades\UpgradeFactory.cs" />
-    <Compile Include="IncrementingResources\WheatResource.cs" />
+    <Compile Include="IncrementingResources\Wheat.cs" />
+    <Compile Include="Upgrades\UpgradeLogics\BaseUpgradeLogic.cs" />
+    <Compile Include="Upgrades\UpgradeLogics\DeltaMultUpgradeLogic.cs" />
+    <Compile Include="Upgrades\UpgradeLogics\ValueSubUpgradeLogic.cs" />
+    <Compile Include="Upgrades\UpgradesList.cs" />
+    <Compile Include="Upgrades\UpgradeLogics\ValueAddUpgradeLogic.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

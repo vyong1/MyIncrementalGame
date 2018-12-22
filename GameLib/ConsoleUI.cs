@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace GameLib
 {
+    /// <summary>
+    /// This is just a temporary console UI to test out code
+    /// </summary>
     public class ConsoleUI : Tickable
     {
         private IEnumerable<IncrementingResource> Resources { get; set; }
@@ -65,8 +68,8 @@ namespace GameLib
             foreach (IncrementingResource r in toUpgrade)
             {
                 double old = r.Delta;
-                Upgrade resetUpgrade = UpgradeFactory.CreateResetUpgrade(0.01);
-                r.ApplyUpgrade(resetUpgrade);
+                // BaseUpgrade resetUpgrade = UpgradeFactory.CreateResetUpgrade(0.01);
+                // r.ApplyUpgrade(resetUpgrade);
                 Console.WriteLine(string.Format("Resource \"{0}\" delta upgraded from {1} to {2}", r.Name, old, r.Delta));
             }
 

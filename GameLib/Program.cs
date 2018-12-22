@@ -21,8 +21,8 @@ namespace GameLib
         static void Main(string[] args)
         {
             Core core = new Core();
-            core.Resources.Add(new CornResource());
-            core.Resources.Add(new WheatResource());
+            core.Resources.Add(new Corn());
+            core.Resources.Add(new Wheat());
             
             core.Start();
         }
