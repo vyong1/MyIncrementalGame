@@ -8,29 +8,29 @@ using System.Threading.Tasks;
 
 namespace GameLib.Upgrades
 {
-    public abstract class BaseUpgradeLogic
+    public abstract class ResourceModifier
     {
-        protected Action<IncrementingResource> Logic { get; set; }
+        protected Action<IncrementingResource> ModifierLogic { get; set; }
 
         protected IncrementingResource Resource { get; set; }
 
         protected int UpgradeFactor { get; set; }
 
-        public BaseUpgradeLogic(IncrementingResource resource, int upgradeFactor, Action<IncrementingResource> logic)
+        public ResourceModifier(IncrementingResource resource, int upgradeFactor, Action<IncrementingResource> modifierLogic)
         {
-            Logic = logic;
+            ModifierLogic = modifierLogic;
             Resource = resource;
             UpgradeFactor = upgradeFactor;
         }
 
         public void ApplyLogic()
         {
-            if (Logic != null)
+            if (ModifierLogic != null)
             {
-                Logic.Invoke(Resource);
+                ModifierLogic.Invoke(Resource);
             }
         }
-
+            
         public abstract override string ToString();
     }
 }

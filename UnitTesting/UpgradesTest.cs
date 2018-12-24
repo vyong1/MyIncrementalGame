@@ -19,8 +19,8 @@ namespace UnitTesting
             Assert.AreEqual(corn.Delta, 50);
 
             // Declare and apply upgrades
-            BaseUpgradeLogic costLogic = new ValueAddUpgradeLogic(corn, -100);
-            BaseUpgradeLogic benefitLogic = new DeltaMultUpgradeLogic(corn, 4);
+            ResourceModifier costLogic = new ValueAddSubModifier(corn, -100);
+            ResourceModifier benefitLogic = new DeltaMultModifier(corn, 4);
             Upgrade u = new Upgrade(costLogic, benefitLogic);
             u.Apply();
             Assert.AreEqual(corn.Value, 0);
@@ -38,8 +38,8 @@ namespace UnitTesting
 
             // Declare and apply upgrades
             Upgrade u = new Upgrade(
-                new ValueSubUpgradeLogic(corn, 100),
-                new DeltaMultUpgradeLogic(corn, 4));
+                new ValueAddSubModifier(corn, -100),
+                new DeltaMultModifier(corn, 4));
             u.Apply();
             Assert.AreEqual(corn.Value, 0);
             Assert.AreEqual(corn.Delta, 200);

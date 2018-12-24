@@ -9,9 +9,9 @@ namespace GameLib.Upgrades.UpgradeLogics
     /// <summary>
     /// Upgrade Logic that doesn't do anything
     /// </summary>
-    public class NullUpgradeLogic : BaseUpgradeLogic
+    public class NullModifier : ResourceModifier
     {
-        public NullUpgradeLogic()
+        public NullModifier()
             : base(null, 0, null)
         {
 

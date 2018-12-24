@@ -10,10 +10,10 @@ namespace GameLib.Upgrades
 {
     public class Upgrade
     {
-        private BaseUpgradeLogic Cost { get; set; }
-        private BaseUpgradeLogic Benefit { get; set; }
+        private ResourceModifier Cost { get; set; }
+        private ResourceModifier Benefit { get; set; }
 
-        public Upgrade(BaseUpgradeLogic cost, BaseUpgradeLogic benefit)
+        public Upgrade(ResourceModifier cost, ResourceModifier benefit)
         {
             Cost = cost;
             Benefit = benefit;

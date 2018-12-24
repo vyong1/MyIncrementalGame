@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace GameLib.Upgrades.UpgradeLogics
 {
-    public class ValueSubUpgradeLogic : BaseUpgradeLogic
+    public class ValueAddSubModifier : ResourceModifier
     {
-        public ValueSubUpgradeLogic(IncrementingResource resource, int sub)
-            : base(resource, sub, r => r.Value = r.Value - sub)
+        public ValueAddSubModifier(IncrementingResource resource, int add)
+            : base(resource, add, r => r.Value = r.Value + add)
         {
 
         }
 
         public override string ToString()
         {
-            return string.Format("Lose {0} {1}", UpgradeFactor, Resource.Name);
+            return string.Format("Gain {0} {1}", UpgradeFactor, Resource.Name);
         }
     }
 }

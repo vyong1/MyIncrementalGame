@@ -53,12 +53,11 @@
     <Compile Include="CoreLib\Tickable.cs" />
     <Compile Include="Upgrades\Upgrade.cs" />
     <Compile Include="IncrementingResources\Wheat.cs" />
-    <Compile Include="Upgrades\UpgradeLogics\BaseUpgradeLogic.cs" />
-    <Compile Include="Upgrades\UpgradeLogics\DeltaMultUpgradeLogic.cs" />
-    <Compile Include="Upgrades\UpgradeLogics\NullUpgradeLogic.cs" />
-    <Compile Include="Upgrades\UpgradeLogics\ValueSubUpgradeLogic.cs" />
+    <Compile Include="Upgrades\ResourceModifiers\BaseResourceModifier.cs" />
+    <Compile Include="Upgrades\ResourceModifiers\DeltaMultModifier.cs" />
+    <Compile Include="Upgrades\ResourceModifiers\NullModifier.cs" />
     <Compile Include="Upgrades\UpgradesList.cs" />
-    <Compile Include="Upgrades\UpgradeLogics\ValueAddUpgradeLogic.cs" />
+    <Compile Include="Upgrades\ResourceModifiers\ValueAddSubModifier.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

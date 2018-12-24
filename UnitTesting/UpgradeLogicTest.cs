@@ -11,7 +11,7 @@ namespace UnitTesting
     {
         private IncrementingResource Corn { get; set; }
 
-        private BaseUpgradeLogic UpgradeLogic { get; set; }
+        private ResourceModifier UpgradeLogic { get; set; }
 
         [TestInitialize]
         public void TestSetup()
@@ -24,7 +24,7 @@ namespace UnitTesting
         [TestMethod]
         public void TestDeltaMultUpgradeLogic()
         {
-            UpgradeLogic = new DeltaMultUpgradeLogic(Corn, 10);
+            UpgradeLogic = new DeltaMultModifier(Corn, 10);
             UpgradeLogic.ApplyLogic();
             Assert.AreEqual(Corn.Value, 100);
             Assert.AreEqual(Corn.Delta, 20 * 10);
@@ -34,7 +34,7 @@ namespace UnitTesting
         [TestMethod]
         public void TestValueAddUpgradeLogic()
         {
-            UpgradeLogic = new ValueAddUpgradeLogic(Corn, 10);
+            UpgradeLogic = new ValueAddSubModifier(Corn, 10);
             UpgradeLogic.ApplyLogic();
             Assert.AreEqual(Corn.Value, 110);
             Assert.AreEqual(Corn.Delta, 20);
@@ -44,7 +44,7 @@ namespace UnitTesting
         [TestMethod]
         public void TestValueSubUpgradeLogic()
         {
-            UpgradeLogic = new ValueSubUpgradeLogic(Corn, 10);
+            UpgradeLogic = new ValueAddSubModifier(Corn, -10);
             UpgradeLogic.ApplyLogic();
             Assert.AreEqual(Corn.Value, 90);
             Assert.AreEqual(Corn.Delta, 20);
@@ -54,7 +54,7 @@ namespace UnitTesting
         [TestMethod]
         public void TestNullUpgradeLogic()
         {
-            UpgradeLogic = new NullUpgradeLogic();
+            UpgradeLogic = new NullModifier();
             UpgradeLogic.ApplyLogic();
             Assert.AreEqual(Corn.Value, 100);
             Assert.AreEqual(Corn.Delta, 20);
