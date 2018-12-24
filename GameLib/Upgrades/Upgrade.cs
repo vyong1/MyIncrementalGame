@@ -10,11 +10,19 @@ namespace GameLib.Upgrades
 {
     public class Upgrade
     {
+        public string Title { get; }
         private ResourceModifier Cost { get; set; }
         private ResourceModifier Benefit { get; set; }
 
         public Upgrade(ResourceModifier cost, ResourceModifier benefit)
+            : this("<Insert Upgrade Title Here>", cost, benefit)
         {
+            
+        }
+
+        public Upgrade(string title, ResourceModifier cost, ResourceModifier benefit)
+        {
+            Title = title;
             Cost = cost;
             Benefit = benefit;
         }
