@@ -51,6 +51,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CoreLib\Tickable.cs" />
+    <Compile Include="Upgrades\ResourceModifiers\ValueMultModifier.cs" />
     <Compile Include="Upgrades\Upgrade.cs" />
     <Compile Include="IncrementingResources\Wheat.cs" />
     <Compile Include="Upgrades\ResourceModifiers\BaseResourceModifier.cs" />

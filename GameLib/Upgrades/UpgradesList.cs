@@ -18,23 +18,9 @@ namespace GameLib.Upgrades
         private void GenerateUpgradesList(Player p)
         {
             Add(new Upgrade(
-                   new DeltaMultModifier(p.Resources.Corn, 2),
-                   new DeltaMultModifier(p.Resources.Wheat, 4)
-                ));
-
-            Add(new Upgrade(
-                   new DeltaMultModifier(p.Resources.Corn, 1),
-                   new DeltaMultModifier(p.Resources.Wheat, 2)
-                ));
-
-            Add(new Upgrade(
-                   new DeltaMultModifier(p.Resources.Corn, 23),
-                   new DeltaMultModifier(p.Resources.Wheat, 4)
-                ));
-
-            Add(new Upgrade(
-                   new DeltaMultModifier(p.Resources.Corn, 5),
-                   new DeltaMultModifier(p.Resources.Wheat, 2)
+                    "Corn Harvest",
+                    new ValueMultModifier(p.Resources.Corn, 0),
+                    new DeltaMultModifier(p.Resources.Corn, 4)
                 ));
         }
     }
