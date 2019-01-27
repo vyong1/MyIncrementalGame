@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameLib;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +21,23 @@ namespace GameView
     /// </summary>
     public partial class MainWindow : Window
     {
+        private Core GameCore { get; set; }
         private GameViewModel ViewModel { get; set; }
 
         public MainWindow()
         {
             MainWindowInitializer initialize = new MainWindowInitializer(this);
-            initialize.ViewModel();
-
-
+            initialize.Model();
+            
             InitializeComponent();
         }
+
+        private void MyButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Player.Resources.Wheat.Value = 0;
+        }
+
+        /* ----- Initialization */
 
         private class MainWindowInitializer
         {
@@ -39,10 +47,16 @@ namespace GameView
             {
                 window = mainWindow;
             }
-            
-            public void ViewModel()
+
+            public void Model()
             {
-                window.ViewModel = new GameViewModel();
+                GameViewModel viewmodel = new GameViewModel();
+                window.ViewModel = viewmodel;
+                window.DataContext = viewmodel;
+
+                window.GameCore = new Core(500);
+                window.GameCore.RegisterEntity(viewmodel.Player);
+                window.GameCore.Start();
             }
         }
     }

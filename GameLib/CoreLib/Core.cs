@@ -1,12 +1,11 @@
 ﻿using GameLib.IncrementingResources;
-using GameLib.PlayerLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 
-namespace GameLib.CoreLib
+namespace GameLib
 {
     /// <summary>
     /// Coordinates a HeartBeat to tick Resources and a UI
@@ -17,14 +16,12 @@ namespace GameLib.CoreLib
 
         private List<Tickable> Tickables { get; set; }
 
-        public Player Player { get; }
+        private object mutex = new object();
 
         public Core(int tickMS = 500)
         {
             HeartBeat = new HeartBeat(tickMS, Tick);
             Tickables = new List<Tickable>();
-
-            Tickables.Add(new Player());
         }
 
         public void Start()
@@ -37,9 +34,31 @@ namespace GameLib.CoreLib
             HeartBeat.Stop();
         }
 
+        public void RegisterEntity(Tickable tickable)
+        {
+            lock (mutex)
+            {
+                Tickables.Add(tickable);
+            }
+        }
+
+        public void DeregisterEntity(Tickable tickable)
+        {
+            lock (mutex)
+            {
+                Tickables.Remove(tickable);
+            }
+        }
+
         private void Tick()
         {
-            Player.Tick();
+            lock (mutex)
+            {
+                foreach (Tickable tickable in Tickables)
+                {
+                    tickable.Tick();
+                }
+            }
         }
     }
 }

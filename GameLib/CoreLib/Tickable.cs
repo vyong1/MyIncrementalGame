@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLib.CoreLib
+namespace GameLib
 {
     public interface Tickable
     {

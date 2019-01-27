@@ -1,4 +1,4 @@
-﻿using GameLib.CoreLib;
+﻿using GameLib;
 using GameLib.Upgrades;
 using GameLib.Upgrades.UpgradeLogics;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameLib.PlayerLib
+namespace GameLib
 {
     public class Player : Tickable
     {

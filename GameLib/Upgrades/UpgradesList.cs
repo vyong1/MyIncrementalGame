@@ -1,5 +1,4 @@
-﻿using GameLib.PlayerLib;
-using GameLib.Upgrades.UpgradeLogics;
+﻿using GameLib.Upgrades.UpgradeLogics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
