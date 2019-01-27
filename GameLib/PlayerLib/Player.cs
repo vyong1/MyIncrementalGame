@@ -1,4 +1,5 @@
-﻿using GameLib.Upgrades;
+﻿using GameLib.CoreLib;
+using GameLib.Upgrades;
 using GameLib.Upgrades.UpgradeLogics;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GameLib.PlayerLib
 {
-    public class Player
+    public class Player : Tickable
     {
         public PlayerResources Resources { get; }
 
@@ -18,6 +19,11 @@ namespace GameLib.PlayerLib
         {
             Resources = new PlayerResources();
             UpgradesTaken = new List<Upgrade>();
+        }
+
+        public void Tick()
+        {
+            Resources.Tick();
         }
     }
 }

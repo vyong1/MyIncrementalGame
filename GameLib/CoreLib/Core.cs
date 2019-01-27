@@ -15,37 +15,31 @@ namespace GameLib.CoreLib
     {
         private HeartBeat HeartBeat { get; set; }
 
+        private List<Tickable> Tickables { get; set; }
+
         public Player Player { get; }
-
-        private ConsoleUI UI { get; set; }
-
-        private Thread UIThread { get; set; }
 
         public Core(int tickMS = 500)
         {
             HeartBeat = new HeartBeat(tickMS, Tick);
-            Player = new Player();
-            // UI = new ConsoleUI(Player.Resources);
+            Tickables = new List<Tickable>();
 
-            UIThread = new Thread(UI.InterpretInput);
+            Tickables.Add(new Player());
         }
 
         public void Start()
         {
             HeartBeat.Start();
-            UIThread.Start();
         }
 
         public void Stop()
         {
             HeartBeat.Stop();
-            UIThread.Join();
         }
 
         private void Tick()
         {
-            Player.Resources.Tick();
-            UI.Tick();
+            Player.Tick();
         }
     }
 }
