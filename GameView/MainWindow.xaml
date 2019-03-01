@@ -4,14 +4,29 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GameView"
+        xmlns:gamelib="clr-namespace:GameLib;assembly=GameLib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+
+        <ControlTemplate x:Key="buttonTemplate" TargetType="Button">
+            <Label
+                Content="{Binding Path=Resources.Wheat.Value, RelativeSource={RelativeSource TemplatedParent}}"
+                />
+        </ControlTemplate>
+        
+    </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="9*" />
+            <RowDefinition Height="9*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
         </Grid.ColumnDefinitions>
@@ -24,12 +39,17 @@
         <Label 
             Grid.Column="1" Grid.Row="0"
             Content="{Binding Player.Resources.Wheat.Value}" />
-        
-        <!-- Corn -->
+
         <Button 
-            Grid.Column="0" Grid.Row="1"
-            x:Name="myButton"
-            Content="Click me!" Click="MyButton_Click"
-            />
+            Grid.Column="0" Grid.Row="2"
+            Content="Button" 
+            Template="{StaticResource ResourceKey=buttonTemplate}">
+
+            <Button.Resources>
+                <gamelib:Player x:Key="playerObject" />
+            </Button.Resources>
+
+        </Button>
+
     </Grid>
 </Window>

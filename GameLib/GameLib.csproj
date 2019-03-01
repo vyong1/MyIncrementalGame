@@ -41,21 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Upgrades\ResourceModifiers\BaseResourceModifier.cs" />
     <Compile Include="CoreLib\Core.cs" />
     <Compile Include="IncrementingResources\Corn.cs" />
-    <Compile Include="Upgrades\ResourceModifiers\DeltaMultModifier.cs" />
     <Compile Include="CoreLib\HeartBeat.cs" />
     <Compile Include="IncrementingResources\IncrementingResource.cs" />
-    <Compile Include="Upgrades\ResourceModifiers\NullModifier.cs" />
     <Compile Include="PlayerLib\Player.cs" />
     <Compile Include="PlayerLib\PlayerResources.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CoreLib\Tickable.cs" />
-    <Compile Include="Upgrades\Upgrade.cs" />
-    <Compile Include="Upgrades\UpgradesList.cs" />
-    <Compile Include="Upgrades\ResourceModifiers\ValueAddSubModifier.cs" />
-    <Compile Include="Upgrades\ResourceModifiers\ValueMultModifier.cs" />
     <Compile Include="IncrementingResources\Wheat.cs" />
   </ItemGroup>
   <ItemGroup />

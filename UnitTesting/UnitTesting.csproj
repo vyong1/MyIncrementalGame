@@ -50,8 +50,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IncrementingResourcesTest.cs" />
-    <Compile Include="UpgradeLogicTest.cs" />
-    <Compile Include="UpgradesTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

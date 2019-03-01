@@ -32,10 +32,9 @@ namespace GameView
             InitializeComponent();
         }
 
-        private void MyButton_Click(object sender, RoutedEventArgs e)
-        {
-            ViewModel.Player.Resources.Wheat.Value = 0;
-        }
+
+
+
 
         /* ----- Initialization */
 
